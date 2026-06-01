@@ -1,0 +1,420 @@
+/* =========================================
+   1. ROOT VARIABLES (Color Palette)
+   ========================================= */
+   :root {
+    /* Primary Brand Colors */
+    --primary-color: #4f46e5;       /* Indigo 600 - Modern & Trustworthy */
+    --primary-hover: #4338ca;       /* Indigo 700 */
+    --primary-soft: #e0e7ff;        /* Indigo 50 */
+    
+    /* Backgrounds */
+    --bg-app: #f3f4f6;              /* Cool Gray 100 */
+    --bg-card: #ffffff;
+    
+    /* Text Colors */
+    --text-primary: #111827;        /* Gray 900 */
+    --text-secondary: #6b7280;      /* Gray 500 */
+    --text-light: #9ca3af;          /* Gray 400 */
+    
+    /* Status Colors (Soft Pastel) */
+    --success-bg: #dcfce7;          /* Green 100 */
+    --success-text: #166534;        /* Green 800 */
+    --danger-bg: #fee2e2;           /* Red 100 */
+    --danger-text: #991b1b;         /* Red 800 */
+    --neutral-bg: #f3f4f6;
+    --neutral-text: #374151;
+    
+    /* UI Elements */
+    --border-color: #e5e7eb;        /* Gray 200 */
+    --radius-lg: 16px;
+    --radius-md: 8px;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* =========================================
+     2. LAYOUT & TYPOGRAPHY
+     ========================================= */
+  body {
+    background-color: var(--bg-app);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .app-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-left: 0;
+    width: 100%;
+}
+  
+  /* Sidebar Shift Logic */
+  .shifted {
+    margin-left: 260px; /* Sesuaikan dengan lebar sidebar */
+  }
+  
+  /* =========================================
+     3. PAGE HEADER
+     ========================================= */
+  .page-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .page-header h2 {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+  }
+  
+  .page-header .text-muted {
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+  
+  /* =========================================
+     4. MODERN TABS
+     ========================================= */
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1px;
+  }
+  
+  .tab-btn {
+    background: transparent;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+  
+  .tab-btn:hover {
+    color: var(--primary-color);
+    background-color: var(--primary-soft);
+  }
+  
+  .tab-btn.active {
+    color: var(--primary-color);
+  }
+  
+  /* Garis bawah animasi untuk tab aktif */
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+  }
+  
+  /* =========================================
+     5. CARD & SEARCH COMPONENT
+     ========================================= */
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Glass effect subtle */
+  }
+  
+  .card-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Search Dropdown Area */
+  .search-container {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+  }
+  
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown-input {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: #f9fafb; /* Sangat light gray */
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    color: var(--text-primary);
+  }
+  
+  .dropdown-input:focus {
+    background-color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--primary-soft); /* Ring focus modern */
+    outline: none;
+  }
+  
+  .clear-icon {
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    background: #e5e7eb;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .clear-icon:hover {
+    background: var(--danger-bg);
+    color: var(--danger-text);
+  }
+  
+  /* Dropdown List */
+  .dropdown-list {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-hover);
+    z-index: 50;
+    max-height: 300px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0.5rem;
+    margin: 0;
+  }
+  
+  .dropdown-list li {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  
+  .dropdown-list li:hover {
+    background-color: var(--primary-soft);
+    color: var(--primary-color);
+  }
+  
+  .no-result {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 1rem;
+  }
+  
+  /* =========================================
+     6. TABLE DESIGN (The Centerpiece)
+     ========================================= */
+  .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 0.5rem;
+  }
+  
+  .table thead th {
+    background-color: #f9fafb;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .table tbody tr {
+    transition: background-color 0.2s ease;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f8fafc; /* Hover effect sangat halus */
+  }
+  
+  .table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+    font-size: 0.925rem;
+    color: var(--text-primary);
+  }
+  
+
+  
+  .table td .text-muted {
+    font-size: 0.85rem;
+    margin-top: 4px;
+    display: block;
+  }
+  
+  /* =========================================
+     7. BADGES & BUTTONS
+     ========================================= */
+  /* Status Badges */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 999px; /* Pill shape */
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* Badge untuk Tanggal (Khusus td.badge) */
+.badge {
+    background: #eef2ff !important;
+    color: #4338ca !important;
+    padding: 4px 10px !important;
+    border-radius: 50px !important;
+    font-family: 'Monaco', monospace !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+
+}
+  
+  .badge.bg-success {
+    background-color: var(--success-bg) !important;
+    color: var(--success-text);
+  }
+  
+  .badge.bg-secondary {
+    background-color: var(--neutral-bg);
+    color: var(--neutral-text);
+    border-color: var(--border-color);
+  }
+  
+  /* Action Buttons (Download/Lihat) */
+  .btn-xs {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    background: white;
+  }
+  
+  .btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+  }
+  
+  .text-danger {
+    color: var(--danger-text);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--danger-bg);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+  }
+  
+  /* =========================================
+     8. PAGINATION
+     ========================================= */
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+  
+  .btn-page {
+    background: white;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .btn-page:hover:not(:disabled) {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+  
+  .btn-page:disabled {
+    background-color: var(--bg-app);
+    color: var(--text-light);
+    cursor: not-allowed;
+  }
+  
+  /* =========================================
+     9. RESPONSIVE / MOBILE
+     ========================================= */
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 1rem;
+    }
+    
+    .card {
+      padding: 1rem;
+      overflow-x: auto; /* Agar tabel bisa discroll di HP */
+    }
+    
+    .table th, .table td {
+      padding: 1rem 1rem;
+      white-space: nowrap; /* Mencegah teks turun baris di tabel sempit */
+    }
+    
+    .page-header h2 {
+      font-size: 1.5rem;
+    }
+  }
+  .status-badge {
+    background-color: red;
+  }

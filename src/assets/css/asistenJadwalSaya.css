@@ -1,0 +1,288 @@
+/* Layout Utama */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f9; /* Warna background sedikit lebih soft */
+  font-family: 'Inter', sans-serif; /* Rekomendasi font modern */
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: margin-left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.main-content.shifted {
+  margin-left: 250px;
+}
+
+.content-wrapper {
+  padding: 30px;
+  flex: 1;
+  max-width: 1400px; /* Agar tidak terlalu lebar di layar besar */
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Typography Header */
+.title { color: #1e293b; font-weight: 800; margin-bottom: 5px; font-size: 28px; }
+.subtitle { color: #64748b; margin-bottom: 30px; font-size: 15px; }
+
+/* Grid System */
+.jadwal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* Sedikit lebih lebar */
+  gap: 25px;
+}
+
+/* --- CARD STYLING (PERBAIKAN UTAMA DISINI) --- */
+.jadwal-card {
+  background: white;
+  border-radius: 16px; /* Lebih rounded */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  height: 100%; /* Agar tinggi kartu seragam */
+}
+
+.jadwal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  border-color: #e2e8f0;
+}
+
+/* Card Header */
+.card-header {
+  padding: 10px 10px;
+  background: linear-gradient(to right, #f8fafc, #ffffff);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.day-badge {
+  background-color: #eff6ff;
+  color: #3b82f6;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.time-badge {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+/* Card Body */
+.card-body {
+  padding: 0px 10px;
+  flex: 0; /* Mengisi ruang kosong agar footer terdorong ke bawah */
+  display: flex;
+  flex-direction: column;
+  align-items:baseline;
+}
+
+/* Judul & Kelas */
+.mk-section {
+  margin-bottom: 15px;
+}
+
+.mk-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1.4;
+  margin-bottom: 4px; /* Jarak dekat ke kelas */
+}
+
+.mk-kelas {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+  display: inline-block;
+  background-color: #f8fafc;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px dashed #e2e8f0;
+  margin: 10px 0 15px 0;
+}
+
+/* Info Dosen & Ruangan (List Style) */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Jarak antar item info */
+  justify-content: left !important;
+}
+
+.info-item {
+  display: flex;
+  justify-content: left !important;
+  gap: 12px;
+  text-align: left !important;
+  place-items: left !important;
+}
+
+.info-icon {
+  font-size: 18px;
+  width: 35px;
+  height: 35px;
+  background-color: #f8fafc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* .info-content {
+  display: flex;
+  flex-direction: column;
+} */
+
+.info-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.info-value {
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Card Footer & Buttons */
+.card-footer {
+  padding: 15px 24px;
+  display: flex;
+  gap: 12px;
+  background-color: #ffffff;
+  border-top: 1px solid #f1f5f9;
+}
+
+.btn-action {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.btn-absen {
+  background-color: #3b82f6; /* Modern Blue */
+  color: white;
+}
+.btn-absen:hover { 
+  background-color: #2563eb; 
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+}
+
+.btn-laporan {
+  background-color: #10b981; /* Modern Green */
+  color: white;
+}
+.btn-laporan:hover { 
+  background-color: #059669; 
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+}
+
+/* Search Input Modern */
+.search-container { margin-bottom: 25px; }
+.search-input {
+  width: 100%;
+  padding: 12px 16px !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px !important;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.search-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Loading & Empty States */
+.loading-state, .empty-state, .error-banner {
+  text-align: center;
+  padding: 60px;
+  background: white;
+  border-radius: 16px;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .main-content.shifted { margin-left: 0; }
+  .jadwal-grid { grid-template-columns: 1fr; }
+  .content-wrapper { padding: 20px; }
+}
+
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.pagination-btn {
+  padding: 8px 16px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.2s;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  border-color: #ccc;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f9fafb;
+}
+
+.pagination-info {
+  font-size: 0.95rem;
+  color: #6b7280;
+}

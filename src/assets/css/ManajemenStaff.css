@@ -1,0 +1,119 @@
+/* Layout dasar (sama seperti sebelumnya) */
+.app-container { display: flex; min-height: 100vh; background: #f4f6f8; }
+.main-content { flex: 1; display: flex; flex-direction: column; transition: margin-left 0.4s ease; width: auto !important; margin-left: 0; }
+.main-content.shifted { margin-left: 250px; }
+.content-wrapper { padding: 30px; flex: 1; }
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; margin-top: 20px; }
+.card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); overflow-x: auto; }
+
+/* Table */
+.table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+.table th, .table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; vertical-align: middle; }
+.table th { background-color: #f8f9fa; font-weight: 600; color: #2c3e50; }
+
+.user-name { font-weight: bold; color: #2c3e50; font-size: 14px !important; }
+.text-muted { color: #95a5a6; font-size: 12px; }
+.contact-info { font-size: 13px; color: #555; }
+.npm-tag { font-size: 11px; color: #7f8c8d; margin-top: 2px; }
+
+/* Badges Role */
+.badge { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; letter-spacing: 0.5px; }
+.badge-kepala { background-color: #e74c3c; color: white; }
+.badge-staff { background-color: #f39c12; color: white; }
+.badge-asisten { background-color: #3498db; color: white; }
+.badge-default { background-color: #95a5a6; color: white; }
+
+/* Buttons */
+.btn-primary { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; } /* Hijau untuk user */
+.btn-primary:hover { background: #219150; }
+.btn-secondary { background: #95a5a6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-right: 10px; }
+.btn-sm { padding: 6px 12px; font-size: 12px; border-radius: 4px; cursor: pointer; border: none; margin-right: 5px; color: white; }
+.btn-edit { background: #f39c12; }
+.btn-delete { background: #e74c3c; }
+
+/* Modal & Form */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 2000; }
+.modal-content { background: white; padding: 25px; border-radius: 8px; width: 550px; max-width: 90%; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+.full-width { grid-column: span 2; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 13px; color: #34495e; }
+.form-group input, .select-input { width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box; }
+
+/* Section Khusus Asisten di Modal */
+.section-asisten {
+    background-color: #f0f8ff; /* Biru muda */
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px dashed #3498db;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.modal-actions { display: flex; justify-content: flex-end; margin-top: 15px; }
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* Pagination Style */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.btn-page {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-page:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.btn-page:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-weight: bold;
+  color: #555;
+}
+/* Badge untuk angka jumlah kelas */
+.badge-count {
+    background-color: #eef2ff;
+    color: #4f46e5;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    display: inline-block;
+    min-width: 30px;
+    text-align: center;
+    border: 1px solid #c7d2fe;
+}
+
+.text-center {
+    text-align: center !important;
+}

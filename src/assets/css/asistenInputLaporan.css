@@ -1,0 +1,263 @@
+/* Layout Standard */
+.app-container { display: flex; min-height: 100vh; background-color: #f4f6f9; }
+.main-content { flex: 1; transition: margin-left 0.3s ease; display: flex; flex-direction: column; }
+.main-content.shifted { margin-left: 260px; }
+.content-wrapper { padding: 30px; flex: 1; }
+
+.page-header { margin-bottom: 25px; }
+.title { font-size: 1.8rem; font-weight: 700; color: #2c3e50; margin-bottom: 5px; }
+.subtitle { color: #7f8c8d; font-size: 1rem; }
+
+/* Tabs */
+.tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+.tab-btn {
+  padding: 10px 20px; border: none; background: #e9ecef; border-radius: 8px;
+  cursor: pointer; font-weight: 600; color: #6c757d; transition: 0.3s;
+}
+.tab-btn.active { background: #3498db; color: white; box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3); }
+
+/* Card & Form */
+.card { background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 30px; }
+.card-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 20px; color: #34495e; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: #555; }
+.form-control { 
+  width: 100%; padding: 10px 12px; border: 1px solid #ddd; 
+  border-radius: 6px; font-size: 0.95rem; background: #fff;
+}
+.form-control:focus { outline: none; border-color: #3498db; }
+
+/* Grid Helper */
+.row { display: flex; gap: 20px; }
+.col-half { flex: 1; }
+.divider { margin: 25px 0; border: 0; border-top: 1px dashed #ccc; }
+
+/* Radio & Sub Form */
+.radio-group { display: flex; gap: 20px; }
+.sub-form { background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #3498db; margin-top: 10px; }
+
+/* Buttons */
+.form-actions { margin-top: 30px; text-align: right; }
+.btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+.btn-primary { background: #3498db; color: white; }
+.btn-primary:hover { background: #2980b9; }
+.btn-secondary { background: #2ecc71; color: white; }
+.btn-secondary:hover { background: #27ae60; }
+.btn:disabled { background: #ccc; cursor: not-allowed; }
+
+/* Upload Section (Tab 2) */
+.upload-item { margin-bottom: 20px; }
+.upload-item h4 { margin-bottom: 5px; color: #2c3e50; }
+.upload-item p { margin-bottom: 10px; color: #7f8c8d; font-size: 0.9rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content.shifted { margin-left: 0; }
+  .row { flex-direction: column; gap: 15px; }
+}
+/* --- Radio Group Styling --- */
+
+/* Container untuk radio button */
+.radio-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Agar turun ke bawah jika layar kecil */
+  margin-top: 5px;
+}
+
+/* Label pembungkus (text + radio) */
+.radio-group label {
+  display: flex;
+  align-items: center !important; /* Kunci agar teks & lingkaran sejajar tengah */
+  gap: 8px; /* Jarak antara lingkaran dan teks */
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #555;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent; /* Persiapan untuk hover effect */
+}
+
+/* Efek Hover pada area label agar lebih interaktif */
+.radio-group label:hover {
+  background-color: #f0f8ff; /* Biru sangat muda */
+  border-color: #dbeafe;
+}
+
+/* --- Kustomisasi Input Radio --- */
+.radio-group input[type="radio"] {
+  /* 1. Hilangkan style bawaan browser yang jelek/besar */
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+
+  /* 2. Buat lingkaran custom */
+  width: 18px;  /* Ukuran pas, tidak terlalu besar */
+  height: 18px;
+  border: 2px solid #cbd5e1; /* Warna border abu soft */
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  transition: all 0.2s ease;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Saat Radio Dipilih (Checked) */
+.radio-group input[type="radio"]:checked {
+  border-color: #3498db; /* Warna biru tema */
+  background-color: white; 
+}
+
+/* Membuat titik tengah (dot) saat dipilih */
+.radio-group input[type="radio"]::before {
+  content: "";
+  width: 10px; /* Ukuran titik dalam */
+  height: 10px;
+  border-radius: 50%;
+  transform: scale(0); /* Default tersembunyi */
+  transition: 0.2s transform ease-in-out;
+  background-color: #3498db; /* Warna titik biru */
+}
+
+.radio-group input[type="radio"]:checked::before {
+  transform: scale(1); /* Munculkan titik saat dipilih */
+}
+/* Search Input Modern */
+.search-container { margin-bottom: 25px; }
+.search-input {
+  width: 100%;
+  padding: 12px 16px !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px !important;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.search-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Wrapper agar dropdown position absolute relatif terhadap form group ini */
+.relative-container {
+  position: relative; 
+}
+
+/* Kotak Dropdown List */
+.custom-dropdown-list {
+  position: absolute;
+  top: 100%; /* Tepat di bawah input */
+  left: 0;
+  width: 100%;
+  max-height: 250px; /* Batasi tinggi agar bisa di-scroll */
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 50; /* Pastikan di atas elemen lain */
+  margin-top: 5px;
+}
+
+/* Item di dalam list */
+.dropdown-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f9ff; /* Biru muda saat hover */
+}
+
+.dropdown-item.empty {
+  color: #94a3b8;
+  text-align: center;
+  font-style: italic;
+  cursor: default;
+}
+
+/* Typography Item */
+.item-title {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.item-subtitle {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* --- TABEL STATUS UPLOAD (TAB 3) --- */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+.status-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.status-table th, .status-table td {
+  padding: 15px;
+  border-bottom: 1px solid #f1f5f9;
+  text-align: left;
+  vertical-align: top;
+}
+
+.status-table th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.status-table tr:last-child td {
+  border-bottom: none;
+}
+
+.status-table tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Badges Status */
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.bg-success { background-color: #dcfce7; color: #166534; }
+.bg-danger { background-color: #fee2e2; color: #991b1b; }
+.bg-info { background-color: #e0f2fe; color: #075985; }
+
+/* Keterangan Asisten */
+.uploader-info {
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+.uploader-info strong {
+  color: #334155;
+}

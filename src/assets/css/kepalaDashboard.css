@@ -1,0 +1,192 @@
+/* --- LAYOUT UTAMA --- */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Background lebih bersih */
+  font-family: 'Poppins', sans-serif; /* Pastikan font enak dibaca */
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: margin-left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.main-content.shifted {
+  margin-left: 250px;
+}
+
+.content-wrapper {
+  padding: 2rem;
+  flex: 1;
+}
+
+/* --- HEADER SECTION --- */
+.dashboard-header {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  color: #718096;
+  box-shadow: 0 10px 20px rgba(118, 75, 162, 0.2);
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+
+/* --- SECTION LABELS --- */
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin: 1.5rem 0 1rem 0;
+  padding-left: 5px;
+  border-left: 4px solid #667eea;
+  line-height: 1.2;
+}
+
+/* --- GRID SYSTEM --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* --- MODERN CARD STYLE --- */
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0,0,0,0.05);
+}
+
+/* Header Kartu (Icon + Judul) */
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.card-title-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #718096;
+  line-height: 1.4;
+}
+
+/* Body Kartu (Angka) */
+.number-display {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 5px;
+}
+
+/* Footer Kartu (Deskripsi) */
+.card-desc {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* --- WARNA TEMA (Color Variations) --- */
+
+/* 1. Tipe Warning (Butuh Persetujuan) - Orange/Red */
+.type-warning .icon-box {
+  background-color: #fff5f5;
+  color: #e53e3e;
+}
+.type-warning:hover .icon-box {
+  background-color: #e53e3e;
+  color: white;
+}
+.type-warning .number-display {
+  color: #e53e3e; /* Angka merah jika ada tanggungan */
+}
+
+/* 2. Tipe Info (Data Umum) - Blue */
+.type-info .icon-box {
+  background-color: #ebf8ff;
+  color: #3182ce;
+}
+.type-info:hover .icon-box {
+  background-color: #3182ce;
+  color: white;
+}
+
+/* 3. Tipe Success (Personil) - Green */
+.type-success .icon-box {
+  background-color: #f0fff4;
+  color: #38a169;
+}
+.type-success:hover .icon-box {
+  background-color: #38a169;
+  color: white;
+}
+
+/* 4. Tipe Purple (Kegiatan) */
+.type-purple .icon-box {
+  background-color: #faf5ff;
+  color: #805ad5;
+}
+.type-purple:hover .icon-box {
+  background-color: #805ad5;
+  color: white;
+}
+
+/* --- LOADING & ERROR --- */
+.loading, .error {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 12px;
+  color: #718096;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.error { color: #e53e3e; background: #fff5f5; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .main-content.shifted { margin-left: 0; }
+  .dashboard-header { padding: 1.5rem; }
+  .title { font-size: 1.5rem; }
+}

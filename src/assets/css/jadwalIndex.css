@@ -1,0 +1,174 @@
+/* Reuse style dasar agar konsisten */
+.app-container { display: flex; min-height: 100vh; background: #f4f6f8; }
+.main-content { flex: 1; display: flex; flex-direction: column; transition: margin-left 0.4s ease; width: 100%; margin-left: 0; }
+.main-content.shifted { margin-left: 250px; }
+.content-wrapper { padding: 30px; flex: 1; }
+
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); overflow-x: auto; }
+
+/* Table Elements */
+.table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+.table th, .table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; vertical-align: middle; }
+.table th { background-color: #f8f9fa; font-weight: 600; color: #2c3e50; }
+
+.day-badge { font-weight: bold; color: #2980b9; margin-bottom: 2px; }
+.badge-kelas { background: #34495e; color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
+.text-muted { color: #7f8c8d; font-size: 12px; }
+.text-danger { color: #e74c3c; font-size: 12px; font-style: italic; }
+.text-center { text-align: center; }
+
+/* Form Elements */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+.full-width { grid-column: span 2; }
+.form-row { display: flex; gap: 10px; } /* Untuk Jam Mulai & Selesai */
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 13px; color: #34495e; }
+.form-group input, .select-input { width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box; height: 38px; }
+
+/* Buttons */
+.btn-primary { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+.btn-primary:hover { background: #2980b9; }
+.btn-secondary { background: #95a5a6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-right: 10px; }
+.btn-sm { padding: 6px 12px; font-size: 12px; border-radius: 4px; cursor: pointer; border: none; margin-right: 5px; color: white; }
+.btn-edit { background: #f39c12; }
+.btn-delete { background: #e74c3c; }
+
+/* Modal Overlay */
+.modal-overlay { position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background: rgba(0,0,0,0.5) !important; display: flex !important; justify-content: center !important; align-items: center !important; z-index: 2000 !important; }
+.modal-content { background: white !important; padding: 25px !important; border-radius: 8px !important; width: 500px !important; max-width: 90% !important; }
+.modal-actions { display: flex !important; justify-content: flex-end !important; margin-top: 15px !important; }
+
+.asisten-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: #f8f9fa; */
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.action-mini {
+    display: flex;
+    gap: 4px;
+}
+
+.btn-xs {
+    padding: 2px 5px;
+    font-size: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.text-hint {
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: block;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.btn-page {
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-page:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+.btn-page:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-info {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Pastikan action mini rapi */
+.action-mini {
+    margin-top: 5px;
+    display: flex;
+    gap: 5px;
+}
+.asisten-cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- STYLE BARU: SEARCHABLE DROPDOWN --- */
+.relative {
+    position: relative; /* Penting agar dropdown list menempel pada input */
+}
+
+.search-select-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.dropdown-list {
+    position: absolute !important;
+    top: 100% !important; /* Muncul tepat di bawah input */
+    left: 0 !important;
+    width: 100% !important;
+    max-height: 200px !important; /* Batas tinggi agar bisa discroll */
+    overflow-y: auto !important;
+    background: white !important;
+    border: 1px solid #ddd !important;
+    border-radius: 0 0 5px 5px !important;
+    z-index: 1000 !important; /* Agar muncul di atas elemen lain */
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+}
+
+.dropdown-list li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-list li:hover {
+    background-color: #f5f5f5;
+    color: #007bff;
+}
+
+.dropdown-list .no-result {
+    padding: 10px;
+    color: #999;
+    font-style: italic;
+    cursor: default;
+}
+
+
